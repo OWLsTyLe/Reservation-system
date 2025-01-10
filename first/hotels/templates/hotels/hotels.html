@@ -18,6 +18,7 @@
                 <h2>{{ hotel.name }}</h2>
                 <p>Rating: {{ hotel.rating }}</p>
                 <p>{{ hotel.description }}</p>
+                <a href="{% url 'din' hotel.id %}" class="btn btn-danger">click</a>
             </div>
         {% endfor %}
     </div>
