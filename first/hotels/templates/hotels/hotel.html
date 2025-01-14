@@ -9,10 +9,12 @@
     <title>{{ hotel.name }}</title>
 </head>
 <body>
+{%block content%}
     <div class="features">
         <h1>{{ hotels.name }}</h1>
         <h2>{{ hotels.description }}</h2>
         <p>Rating: {{ hotels.rating }}</p>
     </div>
+{%endblock%}
 </body>
 </html>
