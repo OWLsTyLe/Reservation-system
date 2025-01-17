@@ -1,10 +1,83 @@
+/* main.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    background-color: #f8f9fa; /* Світлий фон */
+}
+
+aside {
+    background-color: #ffffff; /* Білий фон */
+    border-right: 1px solid #dee2e6; /* Легка рамка */
+    padding: 20px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тінь */
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Розтягнути на всю ширину */
+    gap: 10px;
+}
+
+aside a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #ffffff; /* Білий текст */
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #007bff; /* Синій фон */
+    text-align: center;
+    width: 100%; /* Кнопка займає всю ширину */
+    transition: background-color 0.3s ease;
+}
+
+aside a:hover {
+    background-color: #0056b3; /* Темно-синій при наведенні */
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    max-width: 50%;
+    max-height: 50%;
+}
 
 .logo {
-    height: 640px;
     width: 100%;
-    margin-top: 10px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тінь */
 }
-.btn {
-    margin-top: 50px;
-    width:130px;
+
+@media (max-width: 768px) {
+    aside {
+        width: 200px; /* Менша ширина для маленьких екранів */
+    }
+
+    aside a {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .logo {
+        max-width: 70%; /* Зменшене зображення для маленьких екранів */
+    }
 }
