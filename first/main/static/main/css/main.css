@@ -1,21 +1,27 @@
-/* main.css */
-body {
-    font-family: Arial, sans-serif;
+body, html {
     margin: 0;
     padding: 0;
-    display: flex;
+    height: 100%;
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+.center-container {
+    position: relative;
+    width: 100%;
     height: 100vh;
-    background-color: #f8f9fa; /* Світлий фон */
+    background: url('/static/main/img/photo_2025-01-08 13.18.14.jpg') no-repeat center center/cover;
+    filter: brightness(65%); /* Зменшене затемнення */
 }
 
 aside {
-    background-color: #ffffff; /* Білий фон */
-    border-right: 1px solid #dee2e6; /* Легка рамка */
-    padding: 20px;
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тінь */
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
 }
 
 aside ul {
@@ -23,61 +29,116 @@ aside ul {
     padding: 0;
     margin: 0;
     display: flex;
-    flex-direction: column;
-    width: 100%; /* Розтягнути на всю ширину */
-    gap: 10px;
+    justify-content: center;
+    gap: 20px;
 }
 
-aside a {
+/* Стилі для кнопок */
+.btn {
+    padding: 15px 40px;
+    font-size: 18px;
+    color: white;
+    background: rgba(255, 255, 255, 0.1); /* Напівпрозорий фон */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Контур */
+    border-radius: 30px;
+    backdrop-filter: blur(15px); /* Розмиття фону */
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     text-decoration: none;
-    font-size: 16px;
-    color: #ffffff; /* Білий текст */
-    padding: 15px;
-    border-radius: 5px;
-    background-color: #007bff; /* Синій фон */
     text-align: center;
-    width: 100%; /* Кнопка займає всю ширину */
-    transition: background-color 0.3s ease;
 }
 
-aside a:hover {
-    background-color: #0056b3; /* Темно-синій при наведенні */
-}
-
-main {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.center-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    max-width: 50%;
-    max-height: 50%;
-}
-
-.logo {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тінь */
+.btn:hover {
+    background: rgba(0, 183, 255, 0.5); /* Голубий підсвіт на ховер */
+    border-color: rgba(0, 183, 255, 0.9);
+    color: #fff;
+    box-shadow: 0 0 25px rgba(0, 183, 255, 0.8);
 }
 
 @media (max-width: 768px) {
-    aside {
-        width: 200px; /* Менша ширина для маленьких екранів */
+    aside ul {
+        flex-direction: column;
+        gap: 10px;
     }
 
-    aside a {
-        font-size: 14px;
-        padding: 12px;
+    .btn {
+        padding: 10px 25px;
+        font-size: 16px;
+    }
+}
+
+.hotel-card {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0); /* Початковий фон прозорий */
+    border-radius: 30px; /* Округлені кути */
+    overflow: hidden; /* Сховує частини, що виходять за межі */
+    width: 100%;
+    max-width: 350px;
+    margin-top: 100px; /* Вирівнювання картки по центру */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Тінь для картки */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Плавний перехід для підняття та прозорості */
+    background-image: url('{{ hotel.image.url }}'); /* Тільки фонова картинка без темного градієнту */
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.hotel-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+}
+
+.hotel-card .hotel-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #fff;
+}
+
+.hotel-card h2 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.hotel-card p {
+    font-size: 1rem;
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+.hotel-card .btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: rgba(255, 0, 0, 0.7);
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.hotel-card .btn:hover {
+    background-color: rgb(255, 0, 0); /
+}
+
+
+@media (max-width: 768px) {
+    .hotel-card {
+        width: 90%;
     }
 
-    .logo {
-        max-width: 70%; /* Зменшене зображення для маленьких екранів */
+    .hotel-card h2 {
+        font-size: 1.3rem;
+    }
+
+    .hotel-card p {
+        font-size: 0.9rem;
     }
 }
