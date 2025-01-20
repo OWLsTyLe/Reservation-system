@@ -3,26 +3,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>test</title>
+    <title>{% block title %}Booking{% endblock %}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}?v=2">
 </head>
 <body>
-<aside>
-    <ul class="btn-group-vertical">
-        <li><a href="{% url 'home' %}" class="btn btn-primary btn-block">Головна</a></li>
-        <li><a href="{% url 'hotels' %}" class="btn btn-primary btn-block">Отелі</a></li>
-        <li><a href="{% url 'restourants' %}" class="btn btn-primary btn-block">Ресторани</a></li>
-    </ul>
-</aside>
-<main>
     <div class="center-container">
-        <img class="logo" src="{% static 'main/img/photo_2025-01-08 13.18.14.jpg' %}" alt="лого">
+        <aside>
+            <ul>
+                <li><a href="{% url 'home' %}" class="btn">Головна</a></li>
+                <li><a href="{% url 'hotels' %}" class="btn">Отелі</a></li>
+                <li><a href="{% url 'restourants' %}" class="btn">Ресторани</a></li>
+                <li><a href="{% url 'home' %}" class="btn">Профіль</a></li>
+            </ul>
+        </aside>
+        <div class="content-overlay">
+            <main>
+                {% block content %}
+
+                {% endblock %}
+            </main>
+        </div>
     </div>
-</main>
 </body>
 </html>
