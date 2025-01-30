@@ -120,3 +120,58 @@ aside ul {
 .hotel-card .btn-danger:hover {
     background: #893f71;
 }
+.booking-form {
+    margin-left: 500px;
+    margin-top: -500px;
+    position: absolute;
+    background: linear-gradient(135deg, #660e60, #893f71, #ac6f82, #cfa093);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    z-index: 10;
+}
+
+.booking-form p {
+    margin-bottom: 15px;
+}
+
+.booking-form button {
+    background: #cfa093;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.booking-form button:hover {
+    background: linear-gradient(135deg, #660e60, #893f71, #ac6f82, #cfa093);
+
+}
+.reservation-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-form .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.reservation-form .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
