@@ -1,27 +1,23 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Restaurants List</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-</head>
-<body>
-<div>
+{% extends 'main/index.html' %}
+
+{% block title %}Restaurants{% endblock %}
+
+{% block content %}
+<div class="hotels-list">
     {% for restaurant in restaurants %}
-        <div class="btn btn-warning">
+        <div class="hotel-card btn">
             {% if restaurant.image %}
-                <img src="{{ restaurant.image.url }}" class="card-img-top" alt="{{ restaurant.name }}">
+                <div class="hotel-image-container">
+                    <img src="{{ restaurant.image.url }}" class="hotel-image" alt="{{ restaurant.name }}">
+                </div>
             {% endif %}
-            <div >
+            <div class="card-body">
                 <h5>{{ restaurant.name }}</h5>
-                <p>Rating: {{ restaurant.rating }}</p>
+                <p><i class="bi bi-star" style="color: gold; font-size: 1.5rem;"></i> {{ restaurant.rating }}</p>
                 <p>{{ restaurant.description }}</p>
-                <a href="{% url 'restaurant' restaurant.id %}" class="btn btn-danger">click</a>
+                <a href="{% url 'restaurant' restaurant.id %}" class="btn btn-danger">Click</a>
             </div>
         </div>
     {% endfor %}
 </div>
-</body>
-</html>
+{% endblock %}
