@@ -46,11 +46,12 @@ def create_booking(request):
                 )
 
                 send_booking_confirmation(request.user.email, booking)
-                return redirect('ackount')
+                return redirect('home')
             else:
                 form.add_error('room', 'The selected room is no longer available.')
     else:
         form = BookingForm()
 
     return render(request, 'booking/create_booking.html', {'form': form})
+
 
