@@ -1,0 +1,23 @@
+{% extends 'main/index.html' %}
+
+{% block title %}Restaurants{% endblock %}
+
+{% block content %}
+<div class="hotels-list">
+    {% for restaurant in restaurants %}
+        <div class="hotel-card btn">
+            {% if restaurant.image %}
+                <div class="hotel-image-container">
+                    <img src="{{ restaurant.image.url }}" class="hotel-image" alt="{{ restaurant.name }}">
+                </div>
+            {% endif %}
+            <div class="card-body">
+                <h5>{{ restaurant.name }}</h5>
+                <p><i class="bi bi-star" style="color: gold; font-size: 1.5rem;"></i> {{ restaurant.rating }}</p>
+                <p>{{ restaurant.description }}</p>
+                <a href="{% url 'restaurant' restaurant.id %}" class="btn btn-danger">Click</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

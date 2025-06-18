@@ -1,0 +1,21 @@
+{% extends 'main/index.html' %}
+
+{% block title %}Hotels{% endblock %}
+
+{% block content %}
+<div class="hotels-list">
+    {% for hotel in hotels %}
+        <div class="hotel-card btn">
+            {% if hotel.image %}
+                <div class="hotel-image-container">
+                    <img src="{{ hotel.image.url }}" alt="{{ hotel.name }}" class="hotel-image">
+                </div>
+            {% endif %}
+            <h2>{{ hotel.name }}</h2>
+            <p><i class="bi bi-star" style="color: gold; font-size: 1.5rem;"></i>{{ hotel.rating }}</p>
+            <p>{{ hotel.description }}</p>
+            <a href="{% url 'din' hotel.id %}" class="btn btn-danger">Click</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
